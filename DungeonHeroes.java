@@ -10,11 +10,10 @@ public class DungeonHeroes{
    //71-81 store
    //82-90 1d4 basic treasures
    //91-92 1d2 advanced treasures
-   //93  1 epic treausre (unguarded)
+   //93  1 epic treasure (unguarded)
    //94-99 exit
    public static final int MONSTER_CHANCE = 0;//60% chance of fighting a monster
    //public static final int DARK_ROOM_CHANCE = 60; //(10% chance) we come to a dark room..
-   public static final int STORE_CHANCE = 70;//(10% chance)we come to the store
    //public static final int TRAP_ROOM_CHANCE = 80; //(5% chance) we come to a dark room..
    public static final int BASIC_TREASURE_CHANCE = 85; //(5% chance) 1-2 basic items
    public static final int ADVANCED_TREASURE_CHANCE = 90; //(3% chance) 1-2 advanced items
@@ -25,7 +24,7 @@ public class DungeonHeroes{
    public static Store g_store;
    public static Player g_player; //all information for the player.
    public static Scanner g_input; //handles player input
-   public static Random g_rand; //handes random numbers
+   public static Random g_rand; //handles random numbers
    public static MonsterList g_monsters; //stores the types of monsters
    public static Dice g_dice; //stores a new dice roller
    public static Loot g_loot; //the loot tables
@@ -92,7 +91,7 @@ public class DungeonHeroes{
       //check for class
       boolean validClass = false;
       while(!validClass){
-         System.out.print("Do you want to play a mighty (W)arrior or cunning (T)hief? ");
+         System.out.print("Do you want to play a mighty (W)warrior or cunning (T)thief? ");
          String response = g_input.nextLine().toUpperCase(); 
          if(response.substring(0,1).equals("W")){
            //warrior
@@ -105,17 +104,17 @@ public class DungeonHeroes{
             g_player = new Player(name,"THIEF");
          } 
          else {
-            System.out.println("Invalid Class.  Please choose (W)arrior or (T)hief!");
+            System.out.println("Invalid Class.  Please choose (W)warrior or (T)thief!");
          }  
       }
    }
    
    //startRoom the starting room
-   //return String (the first character of the players repsonse)
+   //return String (the first character of the players response)
    public static String startRoom(Scanner g_input){
       System.out.println("Three months ago, you set out from your village looking for glory and riches.");
       System.out.println("After a long journey into the mountains, you came across a cave.");
-      System.out.println("You hear horrible noises coming from inside.  Do you want to (E)nter or (L)eave?");
+      System.out.println("You hear horrible noises coming from inside.  Do you want to (E)enter or (L)leave?");
       System.out.print("");
       
       boolean validInput = false; //keep asking them until they give us good input
@@ -123,7 +122,7 @@ public class DungeonHeroes{
       while(!validInput){
          response = g_input.nextLine().toUpperCase();
          if(response.length() == 0 || (response.charAt(0) != 'E' && response.charAt(0) !='L')){
-            System.out.print("Invalid response. Options are (E)nter or (L)eave.");
+            System.out.print("Invalid response. Options are (E)enter or (L)leave.");
          } 
          else {
             validInput = true;  //they have a valid response
@@ -141,11 +140,11 @@ public class DungeonHeroes{
       System.out.println("***************************");
       System.out.println("You have entered a new room");
       int treasure = 0;
-      
+   
       boolean levelUp = false;
       
-      if(g_player.level == 2 || g_player.level == 5){
-         if(levelUp){
+      if(g_player.level == 4 || g_player.level == 8 || g_player.level == 12){
+         if(g_player.xp == 0){
             System.out.println();
             treasure = (int)(Math.floor(Math.random()*2) + 1) * 1; //1 or 2
             getlevelUp(treasure);
@@ -159,14 +158,6 @@ public class DungeonHeroes{
       if(roomType >= EXIT_CHANCE){
          return exitRoom(g_input);
       }
-      /*
-      if(roomType >= DARK_ROOM_CHANCE){
-         return darkRoom(g_input);
-      }
-      if(roomType >= TRAP_ROOM_CHANCE){
-         return trapRoom(g_input);
-      }
-      */
       //is this an epic chest
       if(roomType >= EPIC_TREASURE_CHANCE){
          System.out.println("$$$EPIC TREASURE ROOM$$$");
@@ -212,12 +203,6 @@ public class DungeonHeroes{
          System.out.println();
          treasure = (int)(Math.floor(Math.random()*2) + 1) * 1; //1 or 2
       }
-      /*
-      //is this a store?
-      else if(roomType >= STORE_CHANCE){
-         treasure = g_store.enterStore(g_input, g_player);
-      }
-      */
       //otherwise we fight a monster.
       else{
          treasure = fightMonster(g_input);
@@ -229,11 +214,11 @@ public class DungeonHeroes{
       //gives the player randomly rolled treasure
       getTreasure(treasure);
       
-      //handle resteing
+      //handle resting
       return rest(g_input);  
    }
    
-   //rest: allows the user to (E)nter next room, (R)est, (S)tatus or open (I)nventory, (Q)uit game
+   //rest: allows the user to (E)enter next room, (R)est, (S)status or open (I)inventory, (Q)quit game
    //@param --> input A scanner to console input
    //@return --> true when they hit enter... false to leave the game
    public static boolean rest(Scanner g_input){
@@ -242,8 +227,8 @@ public class DungeonHeroes{
       System.out.println("The room is now safe");
       String response = "";
       while(!response.equals("E")){
-         System.out.print("Do you want to (R)est to recover stamina and health, check your(S)tatus, open your (I)nventory, " +
-            " \n(E)nter the next room, Enter the s(H)op, or save and (Q)uit the game.");
+         System.out.print("Do you want to (R)est to recover stamina and health, check your(S)status, open your (I)inventory, " +
+            " \n(E)enter the next room, Enter the s(H)op, or save and (Q)uit the game.");
          System.out.print("");
          response = getResponse();
          //resting
@@ -277,7 +262,6 @@ public class DungeonHeroes{
       }
       return true;
    }
-   
    //fightMonster - rolls a random monster and simulates fight
    //@param --> input - a scanner console input
    //@return --> int (epic treasures in 100s column, Advanced treasures in 10s column, basic treasures in the 1s column, -1 player dead)  
@@ -301,7 +285,7 @@ public class DungeonHeroes{
       System.out.println("Monster level: " + curMonster.level);
       System.out.println("***********************");
       System.out.println();
-      //calcululate potential treasure
+      //calculate potential treasure
       int treasure = curMonster.epic * 100 + curMonster.advanced * 10 + curMonster.basic;
          
       //main fighting loop
@@ -311,7 +295,7 @@ public class DungeonHeroes{
          boolean validInput = false;
          String response = "";
          while(!validInput){
-            System.out.print("Do you want to (F)lee, make a (S)trong attack, or make a (W)eak attack?");
+            System.out.print("Do you want to (F)lee, make a (S)strong attack, or make a (W)eak attack?");
             response = getResponse();
             if(response.equals("F") || response.equals("S") || response.equals("W")){
                //it is a valid response
@@ -361,7 +345,8 @@ public class DungeonHeroes{
             System.out.println("   .-O o `\"-.o   O )_,._    |       |   ");
             System.out.println("  ( o   O  o )--.-\"`O   o\"-.`'-----'`   ");
             System.out.println("   '--------'  (   o  O    o)           ");
-            System.out.println("                `----------`            "); 
+            System.out.println("                `----------`            ");
+            System.out.println();
             g_player.giveFood(curMonster.giveFood());
             System.out.println("      \\`\\/\\/\\/`/  ");
             System.out.println("       )======(   ");
@@ -376,7 +361,6 @@ public class DungeonHeroes{
             g_player.giveXP(curMonster.xp);
             return curMonster.getTreasure();
          }
-         
       }//end keepFight while
       
       return -1;
@@ -491,10 +475,10 @@ public class DungeonHeroes{
             
       if(lootItems.size() > 0){ 
          //print a list of the items
-         System.out.println("***************");
+         System.out.println("*********************");
          System.out.println("!$!Level " + g_player.level + " Rewards!$!");
-         System.out.println("LEVEL UP Items");
-         System.out.println("**************");
+         System.out.println("   LEVEL UP Items");
+         System.out.println("*********************");
          for(Item i : lootItems){
             System.out.println(i.uniqueID + " " + i.name);
          }
@@ -547,10 +531,10 @@ public class DungeonHeroes{
       System.out.prinln("          '----------'          ");
       String response = "";
       do{
-         System.out.print("Do you want to turn on the (L)ight, or (F)lee?");
+         System.out.print("Do you want to turn on the (L)light, or (F)lee?");
          response = getResponse();
          if(response.equals("L")){
-            return false;
+            return true;
          }
       }while(!response.equals("F"));
          return true;      
@@ -558,8 +542,8 @@ public class DungeonHeroes{
    */
    
    //exit room --> asks the user wether or not they want to exit the dungeon. if they say No... keep going... otherwise exit game
-   //    prints total money collected and congratulates whnen they exit
-   //@param --> input .. scaner to player input
+   //    prints total money collected and congratulates when they exit
+   //@param --> input .. scanner to player input
    //@return --> false = quit game, true = keep going
    public static boolean exitRoom(Scanner input){
       System.out.println("                    [] ");
@@ -599,7 +583,7 @@ public class DungeonHeroes{
             return false;
          }
       }while(!response.equals("S"));
-         return true;      
+      return true;      
    }//close exit room
 
   

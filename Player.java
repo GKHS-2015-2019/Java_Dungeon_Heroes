@@ -141,7 +141,7 @@ public class Player{
       System.out.println("XP Gained: " + xp + "! Total: " + this.xp + " of " + level * 10);
       levelUp();
    }
-   
+
    //levelUp -->levels up the player
    public void levelUp(){
       //do they have enough xp to level?
@@ -155,7 +155,7 @@ public class Player{
          this.maxHealth = this.maxHealth + 2; //add 2 to max health
          this.health = this.maxHealth;// set health to max health
          this.levelUp = this.levelUp;//activates level up perks
-      } //end level up block
+      } //end level up block  
    } //end level up function
    
    //rest --> handles resting (if enough food)

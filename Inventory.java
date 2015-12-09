@@ -27,7 +27,7 @@ public class Inventory{
             item.speed -= 2;
          }
          System.out.println();
-         System.out.println(item.name + " now sells for : $" + (item.price / 2));
+         System.out.println(item.name + " now sells for: $" + (item.price / 2));
          System.out.println(item.name + " now has: " + item.attack + " Attack");
          System.out.println(item.name + " now has: " + item.strength + " Strength");
          System.out.println(item.name + " now has: " + item.defense + " Defense");
@@ -170,7 +170,7 @@ public class Inventory{
            //if another item of the same type is equipped yell at user
             for(Map.Entry<Integer, Item> entry : itemList.entrySet()){   
                if(entry.getValue().type.equals(i.type) && entry.getValue().equipped){
-                  System.out.println("You alreay have an item of type " + i.type + ". Remove one first.");
+                  System.out.println("You alreay have " + i.name + "of type " + i.type + ". Remove it first.");
                   equippable = false;
                }
             }
@@ -187,9 +187,13 @@ public class Inventory{
                p.maxHealth += i.health;
                p.maxStamina += i.stamina;
                p.attack += i.attack;
+               System.out.println("You no have: " + p.attack + " Attack");
                p.strength += i.strength;
+               System.out.println("You no have: " + p.strength + " Strength");
                p.defense += i.defense;
+               System.out.println("You no have: " + p.defense + " Defense");
                p.protection += i.protection;
+               System.out.println("You no have: " + p.protection + " Protection");
                p.speed += i.speed;
             }
          }
@@ -221,7 +225,8 @@ public class Inventory{
          //if the item is not equipped yell at user
          boolean unequippable = true;
          if(!i.equipped){
-            System.out.println("The item is already unequipped");         } 
+            System.out.println("The item is already unequipped");
+         } 
          else {
            //unequip the item
                System.out.println("You remove the " + i.name);
@@ -232,9 +237,13 @@ public class Inventory{
                p.maxStamina -= i.stamina;
                p.stamina = Math.min(p.stamina, p.maxStamina);
                p.attack -= i.attack;
+               System.out.println("You no have: " + p.attack + " Attck");
                p.strength -= i.strength;
+               System.out.println("You no have: " + p.strength + " Strength");
                p.defense -= i.defense;
+               System.out.println("You no have: " + p.defense + " Defense");
                p.protection -= i.protection;
+               System.out.println("You no have: " + p.protection + " Protection");
                p.speed -= i.speed;
             
          }

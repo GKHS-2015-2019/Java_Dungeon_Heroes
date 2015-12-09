@@ -1,8 +1,7 @@
-James The Draogn Slayer
-WARRIOR
-4
-0
-233
-25
-1 2 51 101 
-51 101 
+Lukaz
+THIEF
+2
+10
+254
+7
+

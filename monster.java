@@ -5,7 +5,7 @@ public class Monster{
    public String attackDesc; //Description of the attack
    
    //basic fields
-   public int level;// what is the minimum level the moster can spawn on 
+   public int level;// what is the minimum level the monster can spawn on 
    public int health; //hp
    public int curHealth; //Monsters current health
    public int attack; //monster attack value
@@ -51,7 +51,7 @@ public class Monster{
    //@param Dice dice --> a pointer to our dice
    //       Player p --> a pointer to the player
    //       String response --> the players response
-   //@return --> true if player ran sucessfully, false if not
+   //@return --> true if player ran successfully, false if not
    public boolean singleAttack(Dice dice, Player p, String response){
       //is the player trying to flee?
       if(response.equals("F")){
@@ -92,7 +92,7 @@ public class Monster{
             if(damage <= 0){  //deflected off armor
                System.out.println("You hit but cause no damage :(");
             } else {
-               //decrease monsters hitpoints
+               //decrease monsters hit-points
                this.curHealth = this.curHealth - damage;
                //celebrate the hit!
                System.out.println("You attack the " + this.name + " and score a hit of " + damage + " damage. Monster's Health: ("

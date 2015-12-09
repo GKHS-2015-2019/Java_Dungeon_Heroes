@@ -1,0 +1,35 @@
+Chris Barnes
+Mr.stave
+12-8-15
+Dungeon Heroes WirteUp
+
+A) 48 overal points
+
+B) list of all the features add --
+8 monsters --- 0.5 per monster -- 4 points
+balanced --- 8 point
+limited monsters by player level -- 6 points
+limited litems  by player level -- 6 points
+Item boost -- 5 points
+level up perks --- 2 points
+save game -- 10 points
+2 ascii monster --- 5 + 1 per monster -- 7 points
+ascii room -- 7 points
+Shop -- 10 point
+
+C) list of people I helped/how long --
+monster limit help -- 11:16 - 11:40 -- 24 mins -- alex c
+monster limit help -- 10:52 - 11:15 -- 23 mins -- ryan c
+monster limit help -- 11:39 - 11:52 -- 13 mins -- not sure
+
+D) what did you learn from this assignment --
+I learned java.
+More spusificaly I learn how to use correct syntacts, arrays, and loops.
+I also had to learn how to debug in java..
+
+E) what was the hardest part of this assingment
+the hardest part of this assingment was the syntacts and debuging.. 
+I messed up on them a lot..
+
+F) what was the funnest part of this assingment
+the funnest part was the satisfaction of completing it..

@@ -52,7 +52,6 @@ Version 0.3 - Add fighting
 		The return of the monster function will set up the appropriate number of treasures
 
 
-
 Version 0.2-
 	Add Monsters + Rooms
 		Create a Monster Class

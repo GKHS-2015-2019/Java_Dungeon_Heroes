@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
-//MonsterList: defines monsters and randomly sleects them
+//MonsterList: defines monsters and randomly selects them
 
 public class MonsterList{
    private ArrayList<Monster> monsters;//the list of all possible monsters in the game

@@ -1,0 +1,12 @@
+change lines 129 - 139 -- dungeon
+	 boolean levelUp = false;
+      
+      if(g_player.level == 2 || g_player.level == 5){
+      levelUp = true;
+         if(levelUp){
+            System.out.println();
+            treasure = (int)(Math.floor(Math.random()*2) + 1) * 1; //1 or 2
+            getlevelUp(treasure);
+            levelUp = false;
+         }
+      }

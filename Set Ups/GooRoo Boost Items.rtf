@@ -1,0 +1,47 @@
+change will be sold to added to current weapons --
+	line 394 -- dungeon - get treasure
+	line 453 -- dungeon - get levelUp
+	
+Add system to add them not sell -- inventory - add item
+	change lines 20 - 34
+		Item i = itemList.get(item.uniqueID);
+			 item.attack += 2;
+			 item.strength += 2;
+			 item.defense += 2;
+			 item.protection += 2;
+			 if(item.uniqueID >= 50 && item.uniqueID <= 100){
+				item.speed -= 2;
+			 }
+			 System.out.println();
+			 System.out.println(item.name + "now has : " + item.attack + " Attack");
+			 System.out.println(item.name + "now has : " + item.strength + " Strength");
+			 System.out.println(item.name + "now has : " + item.defense + " Defense");
+			 System.out.println(item.name + "now has : " + item.protection + " Protection");
+			 System.out.println(item.name + "now has : " + item.speed + " Speed");
+			 return 0;
+		}
+		else{
+			//add the item
+			itemList.put(item.uniqueID, item);
+		}
+		  return 0;
+	}
+
+Change list display -- inventory
+	chnage lines 75 - 91
+		public void list(){
+		  System.out.println();
+		  //loop through inventory items
+		  System.out.println("Item Num\tName\tLevel");
+		  System.out.println("********************************");
+		  for(Map.Entry<Integer, Item> entry : itemList.entrySet()){
+			 //print the item number and value
+			 System.out.print(entry.getKey() + "\t " + entry.getValue().name);
+			 System.out.print(entry.getValue().level);
+			 //print if the item is equipped or not
+			 if(entry.getValue().equipped){
+				System.out.print(" (Equipped)");
+			 }
+			 System.out.println();
+		  }// close for
+	   }// close list
