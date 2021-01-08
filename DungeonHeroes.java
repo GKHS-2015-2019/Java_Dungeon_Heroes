@@ -35,23 +35,27 @@ public class DungeonHeroes {
       rand = new Random();
       monsters = new MonsterList();
    
-      createCharacter(); //player chooses their player class
+      createCharacter(input); //player chooses their player class
       g_player.status(); //tests player & shows status
       
       //main loop
       boolean playGame = true;
-      //startRoom(); //starting room      
-      while(playGame) {
+       //starting room
+      if(startRoom(input).equals("L")){
          playGame = false;
+      }      
+      while(playGame) {
+         playGame = enterRoom(input); //Keep playing until the user quits
       }
          
    
    }// end main
    
-   public static void createCharacter() {
+   //create Character --> Creates a new character giving the player choice
+   public static void createCharacter(Scanner input) {
       //name
       System.out.print("What name would you like to be know by hero?");
-      Scanner input = new Scanner(System.in);
+      //Scanner input = new Scanner(System.in);
       String name = input.nextLine();
       System.out.println("Welcome " + name + "!");
       
@@ -64,11 +68,13 @@ public class DungeonHeroes {
             //warrior
             validClass = true;
             g_player = new Player(name, "WARRIOR");
-         } else if(response.substring(0,1).equals("T")) {
+         } 
+         else if(response.substring(0,1).equals("T")) {
             //thief
             validClass = true;
             g_player = new Player(name, "THIEF");
-         } else {
+         } 
+         else {
             System.out.println("Invalid Class. Please choose (W)arrior or(T)hief!");
          }
       }
@@ -80,11 +86,39 @@ public class DungeonHeroes {
    public static String startRoom(Scanner input) {
       System.out.println("Three months ago, you set out from your village looking for glory and riches.");
       System.out.println("After a long journey into the mountains, you came across a cave.");
-      System.out.println("You hear horrible noises coming from inside. Do you want to (E)nter or (L)eave?");
+      System.out.print("You hear horrible noises coming from inside. Do you want to (E)nter or (L)eave?");
       
-   return "E";
-
+      boolean validInput = false; //keep asking them until they give us good input
+      String response = "";
+      while(!validInput) {
+         response = input.nextLine().toUpperCase();
+         if(response.length() ==0 || (response.charAt(0) != 'E' && response.charAt(0)!='L')) {
+            System.out.print("Invalid response. Options are (E)nter or (L)eave.");
+         } 
+         else {
+            validInput = true;//they have a valid response
+         }
+      }
+      
+      return response.substring(0,1);
    }
    
+   //enterRoom: enters a new room where the player will battle a monster etc
+   //@param --> input A scanner to console input
+   //@return --> false -stop playing the game, true - keep playing the game (enter a new room)
+   public static boolean enterRoom (Scanner input) {
+      System.out.println("New Room");
+      fightMonster(input);
+      return false;
+   }   
+   
+   //fightMonster - rolls a random monster and simulates fight
+   //@param --> input - a scanner console input
+   //@return --> int (epic treasures in 100s column, advanced treasures in 10s column, basic treasures in the 1s column, -1 player dead)
+   public static int fightMonster(Scanner input) {
+      monster curMonster = monsters.getMonster();
+      System.out.println("You come face to face with a " + curMonster.name);
+      return -1;
+   }
 
-}//end DungeonHeroes
+}//end DungeonHeroes/ class
