@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DungeonHeroes",
+            "request": "launch",
+            "mainClass": "DungeonHeroes",
+            "projectName": "DungeonHeroes_a0e1ee23"
+        }
+    ]
+}
