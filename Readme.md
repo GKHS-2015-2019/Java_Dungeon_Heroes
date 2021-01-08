@@ -1,3 +1,12 @@
+Version 0.3 - Add fighting
+	Create a random dice roller function
+	Simulate a fight between the character and the monster (to the death)
+		Choice character will have each round:
+			(S)trong attack, (W)eak attack, (F)lee
+		The return of the monster function will set up the appropriate number of treasures
+
+
+
 Version 0.2-
 	Add Monsters + Rooms
 		Create a Monster Class

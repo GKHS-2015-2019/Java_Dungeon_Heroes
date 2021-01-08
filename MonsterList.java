@@ -65,10 +65,10 @@ public class MonsterList {
       String desc = "A twenty foot tall giant peers mecingly at you with his single large eye.";
       String attackDesc = "swings his hammer at";
       
-      int health = 50;
-      int attack = 18;
-      int damage = 20;
-      int defense = 8;
+      int health = 20;
+      int attack = 6;
+      int damage = 7;
+      int defense = 6;
       int protection = 10;
       int speed = -5;
       
@@ -90,11 +90,11 @@ public class MonsterList {
       //adds a Unicorn
    private void addUnicorn(){
       String name = "Unicorn";
-      String desc = "You see something sparkling and beautiful. It nuzzles up to you and you start to trust it.";
+      String desc = "You see something sparkling and beautiful. It nuzzles up to you and you start to trust it, but it's deadly.";
       String attackDesc = "stabs you with its horn";
       
-      int health = 30;
-      int attack = 25;
+      int health = 10;
+      int attack = 9;
       int damage = 10;
       int defense = 5;
       int protection = 10;
@@ -120,9 +120,9 @@ public class MonsterList {
       String desc = "A huge flame barely misses your face! You feel the heat of the fire and realize how deadly the beast is.";
       String attackDesc = "burns you";
       
-      int health = 75;
-      int attack = 20;
-      int damage = 50;
+      int health = 35;
+      int attack = 9;
+      int damage = 20;
       int defense = 40;
       int protection = 4;
       int speed = -2;
@@ -143,14 +143,14 @@ public class MonsterList {
          //adds a Big Foot Monster
    private void addBigFoot(){
       String name = "Big Foot";
-      String desc = "A giant, fuzzy, 8 foot man looking beast stomps its way up to you. It looks giant.";
+      String desc = "A giant, fuzzy, 8 foot man-looking beast stomps its way up to you. It looks giant.";
       String attackDesc = "jumps and tackles you";
       
       int health = 5;
       int attack = 15;
-      int damage = 50;
-      int defense = 10;
-      int protection = 4;
+      int damage = 5;
+      int defense = 4;
+      int protection = 10;
       int speed = 9;
       
       int xp =  4000;
@@ -173,8 +173,8 @@ public class MonsterList {
       String attackDesc = "kidnaps you";
       
       int health = 30;
-      int attack = 20;
-      int damage = 15;
+      int attack = 8;
+      int damage = 10;
       int defense = 10;
       int protection = 2;
       int speed = 12;
@@ -195,14 +195,14 @@ public class MonsterList {
       //adds a Baby Godzilla Monster
    private void addBabyGodzilla(){
       String name = "Baby Godzilla";
-      String desc = "A cute looking lizard baby comes up to you. It's as big as you, and its roar is as loud as a plane engine.";
+      String desc = "A cute looking lizard baby comes up to you. It's as big as you, and its roar is as loud as a plane engine, but yet you still like it.";
       String attackDesc = "scratches";
       
       int health = 5;
       int attack = 15;
-      int damage = 100;
-      int defense = 500;
-      int protection = 20;
+      int damage = 4;
+      int defense = 50;
+      int protection = 8;
       int speed = 2;
       
       int xp = 1000;
