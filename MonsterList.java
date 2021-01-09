@@ -201,7 +201,7 @@ public class MonsterList {
       int health = 5;
       int attack = 15;
       int damage = 4;
-      int defense = 50;
+      int defense = 15;
       int protection = 8;
       int speed = 2;
       
