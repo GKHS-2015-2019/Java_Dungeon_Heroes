@@ -63,13 +63,11 @@ public class DungeonHeroes{
          }
       }
       else {
-         System.out.println("********");
-         System.out.println("NEW GAME");
-         System.out.println("********");
          createCharacter(g_input); //player chooses their player class
       }
       //g_player.status(); //tests player and shows us status
       System.out.println();
+      
       //main loop
       boolean playGame = true;
       //starting room
@@ -115,8 +113,7 @@ public class DungeonHeroes{
    public static String startRoom(Scanner g_input){
       System.out.println("Three months ago, you set out from your village looking for glory and riches.");
       System.out.println("After a long journey into the mountains, you came across a cave.");
-      System.out.println("You hear horrible noises coming from inside.  Do you want to (E)nter or (L)eave?");
-      System.out.print("");
+      System.out.print("You hear horrible noises coming from inside.  Do you want to (E)nter or (L)eave?");
       
       boolean validInput = false; //keep asking them until they give us good input
       String response = "";
@@ -212,12 +209,10 @@ public class DungeonHeroes{
          System.out.println();
          treasure = (int)(Math.floor(Math.random()*2) + 1) * 1; //1 or 2
       }
-      /*
       //is this a store?
       else if(roomType >= STORE_CHANCE){
          treasure = g_store.enterStore(g_input, g_player);
       }
-      */
       //otherwise we fight a monster.
       else{
          treasure = fightMonster(g_input);
@@ -242,8 +237,8 @@ public class DungeonHeroes{
       System.out.println("The room is now safe");
       String response = "";
       while(!response.equals("E")){
-         System.out.print("Do you want to (R)est to recover stamina and health, check your(S)tatus, open your (I)nventory, " +
-            " \n(E)nter the next room, Enter the s(H)op, or save and (Q)uit the game.");
+         System.out.print("Do you want to check your(S)tatus, (R)est to recover stamina and health, open (I)nventory, " +
+            " \n(E)nter the next room, save and (Q)uit the game.");
          System.out.print("");
          response = getResponse();
          //resting
@@ -254,10 +249,8 @@ public class DungeonHeroes{
          if(response.equals("S")){
             g_player.status();
          }
-         if(response.equals("H")){
-            g_store.enterStore(g_input, g_player);
-         }
          //quit game
+         
          if(response.equals("Q")){
             try{
                SaveGame.save(g_player,"saveGame.txt");
@@ -273,8 +266,6 @@ public class DungeonHeroes{
          if(response.equals("I")){
             g_player.inventory.handleInventory(g_input, g_player);
          }
-         
-      }
       return true;
    }
    

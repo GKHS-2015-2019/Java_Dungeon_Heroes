@@ -1,3 +1,7 @@
+Version 0.6 - add differnent rooms
+	- add treause rooms
+	- add the exit(Win state)
+
 Version 0.5 - Add inventory
 	-Item class
 		(Just has data)
