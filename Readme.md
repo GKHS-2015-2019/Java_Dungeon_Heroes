@@ -1,3 +1,20 @@
+Version 0.5 - Add inventory
+	-Item class
+		(Just has data)
+		Name
+		Description
+		Unique ID
+		Stats...
+	-Loot Class
+		Contains 3 types of items lists (epic, advanced, basic)
+		returns random items
+	-Inventory Class
+		Allows player to view inventory, equip, and unequip and sell items
+	-Dungeon Heroes
+		Ability to call inventory (equipped items etc)
+		Monsters drop loot
+		Player can loot
+
 Version 0.4 - Add XP + Leveling
 		-add in player Class
 		-increaseLevel in player Class
