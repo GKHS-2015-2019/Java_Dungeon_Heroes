@@ -1,91 +1,39 @@
-Version 0.6 - add differnent rooms
-	- add treause rooms
-	- add the exit(Win state)
+# DungeonHeroes
 
-Version 0.5 - Add inventory
-	-Item class
-		(Just has data)
-		Name
-		Description
-		Unique ID
-		Stats...
-	-Loot Class
-		Contains 3 types of items lists (epic, advanced, basic)
-		returns random items
-	-Inventory Class
-		Allows player to view inventory, equip, and unequip and sell items
-	-Dungeon Heroes
-		Ability to call inventory (equipped items etc)
-		Monsters drop loot
-		Player can loot
+DungeonHeroes is an old text based RPG built in Java.
+Credit goes to the [AP Computer Science course at GKHS](https://www.bethelsd.org/Page/5198) & [CSE142 Winter 2016 at UW](https://courses.cs.washington.edu/courses/cse142/16wi/homework.shtml) \
+Completed sometime around May 22nd 2017, during jounior year in highschool.
 
-Version 0.4 - Add XP + Leveling
-		-add in player Class
-		-increaseLevel in player Class
-			Increases Max Health, Attack, Defense
-			Decreases Speed
-			XP to level = currentLevel * 10
-			giveGold (gives player food)
-			giveFood (gives player food)
-		-Add to monster
-			*getGold
-			*getFood
-		-In fight in Dungeon Heroes...
-			*Reward player for winning
-			*Set monster health to max
-			
-	    -Add Master Room
-		-Loot
-		-Explore (next room)
-		-Rest (uses food to heal)
-			-3 player functions
-				rest (uses food to heal)
-				Stamina / health
-				stamina = 1 food per 10 stamina
-				health = 1 food per health
+## Installation
 
-Version 0.3 - Add fighting
-	Create a random dice roller function
-	Simulate a fight between the character and the monster (to the death)
-		Choice character will have each round:
-			(S)trong attack, (W)eak attack, (F)lee
-		The return of the monster function will set up the appropriate number of treasures
+```bash
+git clone https://github.com/chrisbarnes2000/JavaDungeonHeroes.git
+cd JavaDungeonHeroes
+```
 
+## Usage
 
-Version 0.2-
-	Add Monsters + Rooms
-		Create a Monster Class
-			Name
-			Description
-			Health
-			Attack
-			Defense
-			Strength
-			Protection
-			Speed
-			XP
-			//Treasure (Will do this later)
-		Create a Monster List Class
-			Add a type of monster
-			Randomly choose a monster from the player
+```zsh
+$ java DungeonHeroes.java
 
+******----******----******
+Welcome to Dungeon Heroes!
+******----******----******
 
-Version 0.1 - 
-	Create the Player Class
-		Attributes:
-			Name
-			Class
-			Health
-			Attack
-			Defense
-			Strength
-			Armor
-			Food
-			Inventory
-			Experience
-			Level
-			Stamina
+\^~~~~\   )  (   /~~~~^/ 
+ ) *** \  {**}  / *** ( 
+  ) *** \_ ^^ _/ *** ( 
+  ) ****   vv   **** ( 
+  )_****      ****_( 
+    )*** m  m ***( 
 
-		Methods
-			Player(Name, Class) --> Creates a new player
-			
+Select (N)ew game or (C)ontinue
+```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+### License [MIT](https://choosealicense.com/licenses/mit/)
